@@ -21,15 +21,23 @@ public class MainViewController implements Initializable {
     @FXML
     private Label label;
     
+    @FXML private PrimaryViewController primaryView;
+    @FXML private SecondaryViewController secondaryView;
+    
     @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
     }
+    public MainViewController() {
+        System.out.println("MVC::ctor()");
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        System.out.println("MVC::initialize()");
+        
+        //secondaryView.setPrimaryController(PrimaryView2);
     }    
     
 }

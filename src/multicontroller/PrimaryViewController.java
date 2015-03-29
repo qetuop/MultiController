@@ -15,13 +15,22 @@ import javafx.fxml.Initializable;
  * @author Brian
  */
 public class PrimaryViewController implements Initializable {
-
+    static int counter = 0;
+    int myCounter;
+    
+    public PrimaryViewController() {
+        myCounter = counter++;
+        System.out.println("PVC::ctor() " + myCounter);
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        System.out.println("PVC::initialize() " + myCounter);
     }    
+    
+    public int getMycounter() { return myCounter;}
     
 }

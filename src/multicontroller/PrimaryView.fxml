@@ -5,7 +5,15 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import multicontroller.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="multicontroller.PrimaryViewController">
-    
+<!--<Home id="homeContent" xmlns:fx="http://javafx.com/fxml"       
+09	        spacing="10" translateY="40" translateX="20" fx:controller="fxmlstuff.Home" >-->
+
+<!--<PrimaryViewController id="primaryView" xmlns:fx="http://javafx.com/fxml/1" fx:controller="multicontroller.PrimaryViewController" >
+</PrimaryViewController>-->
+
+<AnchorPane id="PrimaryView" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="multicontroller.PrimaryViewController">
+<!--    <Button layoutX="126" layoutY="90" text="PV Me!"fx:id="button" />
+        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />-->
 </AnchorPane>
