@@ -10,10 +10,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
+import static multicontroller.PrimaryViewController.counter;
 
 /**
  * FXML Controller class
@@ -22,11 +25,14 @@ import javafx.scene.Parent;
  */
 public class SecondaryViewController implements Initializable {
 
-    private PrimaryViewController pvc;
+    static int counter = 0;
+    int myCounter;
 
+    private Main mainApp;
 
     public SecondaryViewController() {
-        System.out.println("SVC::ctor() ");
+        myCounter = counter++;
+        System.out.println("SVC::ctor() " + myCounter);
     }
 
     /**
@@ -34,32 +40,17 @@ public class SecondaryViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("SVC::initialize() ");
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("PrimaryView.fxml"));
-        try {
-            Parent root = (Parent) loader.load();
-        } catch (IOException ex) {
-            Logger.getLogger(SecondaryViewController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        pvc = loader.getController();
-        System.out.println("1:PVC counter = " + pvc.getMycounter());
-
-        URL location = getClass().getResource("PrimaryView.fxml");
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(location);
-        fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
-        try {
-            Parent root = (Parent) fxmlLoader.load(location.openStream());
-            pvc = fxmlLoader.getController();
-            System.out.println("2:PVC counter = " + pvc.getMycounter());
-        } catch (IOException ex) {
-            Logger.getLogger(SecondaryViewController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.out.println("SVC::initialize() " + myCounter);
     }
 
-    public void setPrimaryController(PrimaryViewController ctrl) {
-        this.pvc = ctrl;
+    public void setMainApp(Main mainApp) {
+        System.out.println("SVC::setMainApp()::" + myCounter);
+        this.mainApp = mainApp;
+        System.out.println("mainApp=" + mainApp);
     }
 
+    @FXML
+    protected void handleButtonAction(ActionEvent event) {
+        System.out.println("SVC Button " + mainApp.getModelData().getMyCounter());
+    }
 }

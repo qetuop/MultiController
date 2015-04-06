@@ -6,11 +6,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="multicontroller.MainViewController">
+<VBox id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="multicontroller.MainViewController">
     <children>
-        <fx:include  fx:id="PrimaryView2" source="PrimaryView.fxml"/>
+        <!--THIS IS GOING TO CALL PV ctor/initalize, this it BEFORE MVC initalize called-->
+        <fx:include fx:id="primary" source="PrimaryView.fxml"/> 
         <fx:include fx:id="secondary" source="SecondaryView.fxml"/>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
+<!--        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
+        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />-->
     </children>
-</AnchorPane>
+</VBox>
